@@ -81,7 +81,12 @@ public class ProductsController
     {
         try
         {
-            productDao.create(product);
+            Product existing = productDao.getById(id);
+            if (existing == null)
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+            product.setProductId(id);
+            productDao.update(product);
         }
         catch(Exception ex)
         {
