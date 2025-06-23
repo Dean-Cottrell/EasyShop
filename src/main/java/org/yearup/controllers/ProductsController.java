@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import org.yearup.models.Product;
 import org.yearup.data.ProductDao;
+import org.yearup.models.Product;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -29,8 +29,7 @@ public class ProductsController
     public List<Product> search(@RequestParam(name="cat", required = false) Integer categoryId,
                                 @RequestParam(name="minPrice", required = false) BigDecimal minPrice,
                                 @RequestParam(name="maxPrice", required = false) BigDecimal maxPrice,
-                                @RequestParam(name="color", required = false) String color
-                                )
+                                @RequestParam(name="color", required = false) String color)
     {
         try
         {
@@ -44,16 +43,18 @@ public class ProductsController
 
     @GetMapping("{id}")
     @PreAuthorize("permitAll()")
-    public Product getById(@PathVariable int id )
+    public Product getById(@PathVariable int id)
     {
         try
         {
-            var product = productDao.getById(id);
-
+            Product product = productDao.getById(id);
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
             return product;
+        }
+        catch(ResponseStatusException notFound)
+        {
+            throw notFound;
         }
         catch(Exception ex)
         {
@@ -82,11 +83,14 @@ public class ProductsController
         try
         {
             Product existing = productDao.getById(id);
-            if (existing == null)
+            if(existing == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
             product.setProductId(id);
             productDao.update(product);
+        }
+        catch(ResponseStatusException notFound)
+        {
+            throw notFound;
         }
         catch(Exception ex)
         {
@@ -100,12 +104,14 @@ public class ProductsController
     {
         try
         {
-            var product = productDao.getById(id);
-
+            Product product = productDao.getById(id);
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
             productDao.delete(id);
+        }
+        catch(ResponseStatusException notFound)
+        {
+            throw notFound;
         }
         catch(Exception ex)
         {
