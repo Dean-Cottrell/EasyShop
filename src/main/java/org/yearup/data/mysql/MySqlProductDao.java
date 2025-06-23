@@ -180,7 +180,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
             statement.setString(6, product.getImageUrl());
             statement.setInt(7, product.getStock());
             statement.setBoolean(8, product.isFeatured());
-            statement.setInt(9, product.getProductId()); // ✅ this was the missing piece
+            statement.setInt(9, product.getProductId());
 
             statement.executeUpdate();
         }
@@ -210,8 +210,13 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public List<Product> getByCategoryId(int categoryId) {
-        return List.of();
+    public List<Product> getByCategoryId(int categoryId)
+    {
+        return listByCategoryId(categoryId);
+    }
+
+    private Product listByCategoryId() {
+        return null;
     }
 
     protected static Product mapRow(ResultSet row) throws SQLException
