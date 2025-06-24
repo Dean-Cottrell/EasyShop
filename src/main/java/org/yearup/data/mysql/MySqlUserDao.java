@@ -20,7 +20,6 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         super(dataSource);
     }
 
-
     @Override
     public User create(User newUser)
     {
@@ -40,7 +39,6 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
             user.setPassword("");
 
             return user;
-
         }
         catch (SQLException e)
         {
@@ -57,7 +55,6 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         try (Connection connection = getConnection())
         {
             PreparedStatement statement = connection.prepareStatement(sql);
-
             ResultSet row = statement.executeQuery();
 
             while (row.next())
@@ -82,10 +79,9 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
-
             ResultSet row = statement.executeQuery();
 
-            if(row.next())
+            if (row.next())
             {
                 User user = mapRow(row);
                 return user;
@@ -101,19 +97,16 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
     @Override
     public User getByUserName(String username)
     {
-        String sql = "SELECT * " +
-                " FROM users " +
-                " WHERE username = ?";
+        String sql = "SELECT * FROM users WHERE username = ?";
 
         try (Connection connection = getConnection())
         {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
-
             ResultSet row = statement.executeQuery();
-            if(row.next())
-            {
 
+            if (row.next())
+            {
                 User user = mapRow(row);
                 return user;
             }
@@ -130,12 +123,10 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
     public int getIdByUsername(String username)
     {
         User user = getByUserName(username);
-
-        if(user != null)
+        if (user != null)
         {
             return user.getId();
         }
-
         return -1;
     }
 
@@ -153,6 +144,6 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         String hashedPassword = row.getString("hashed_password");
         String role = row.getString("role");
 
-        return new User(userId, username,hashedPassword, role);
+        return new User(userId, username, hashedPassword, role);
     }
 }
