@@ -1,5 +1,6 @@
-package org.yearup.data;
+package org.yearup.data.mysql;
 
+import org.yearup.data.ShoppingCartDao;
 import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.Product;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -31,13 +32,22 @@ public class MySqlShoppingCartDao implements ShoppingCartDao {
             p.setImageUrl(rs.getString("image_url"));
             p.setStock(rs.getInt("stock"));
             p.setFeatured(rs.getBoolean("featured"));
-            return new ShoppingCartItem(p, rs.getInt("quantity"));
+
+            ShoppingCartItem item = new ShoppingCartItem();
+            item.setProduct(p);
+            item.setQuantity(rs.getInt("quantity"));
+            return item;
         }
     };
 
     @Override
     public List<ShoppingCartItem> getCartItems(int userId) {
-        String sql = "SELECT p.*, sc.quantity FROM products p JOIN shopping_cart sc ON p.product_id = sc.product_id WHERE sc.user_id = ?";
+        String sql = """
+            SELECT p.*, sc.quantity
+              FROM products p
+              JOIN shopping_cart sc ON p.product_id = sc.product_id
+             WHERE sc.user_id = ?
+        """;
         return jdbcTemplate.query(sql, rowMapper, userId);
     }
 
