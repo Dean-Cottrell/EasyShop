@@ -24,4 +24,22 @@ public class ShoppingCartController {
         int userId = userDao.getByUserName(principal.getName()).getId();
         return cartDao.getCartItems(userId);
     }
-}
+
+    @PostMapping("/products/{productId}")
+    public void addToCart(Principal principal, @PathVariable int productId) {
+        int userId = userDao.getByUserName(principal.getName()).getId();
+        List<ShoppingCartItem> items = cartDao.getCartItems(userId);
+        boolean exists = items.stream()
+                .anyMatch(i -> i.getProduct().getProductId() == productId);
+        if (exists) {
+            int currentQty = items.stream()
+                    .filter(i -> i.getProduct().getProductId() == productId)
+                    .findFirst()
+                    .get()
+                    .getQuantity();
+            cartDao.updateCartItem(userId, productId, currentQty + 1);
+        } else {
+            cartDao.insertCartItem(userId, productId, 1);
+        }
+    }
+
