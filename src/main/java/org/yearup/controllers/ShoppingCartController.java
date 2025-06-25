@@ -44,9 +44,8 @@ public class ShoppingCartController {
     }
 
     @PutMapping("/products/{productId}")
-public void updateCartItem(Principal principal, @PathVariable int productId, @RequestBody int quantity) {
-    int userId = userDao.getByUserName(principal.getName()).getId();
-    cartDao.updateCartItem(userId, productId, quantity);
+    public void updateCartItem(Principal principal, @PathVariable int productId, @RequestBody int quantity) {
+        int userId = userDao.getByUserName(principal.getName()).getId();
+        cartDao.updateCartItem(userId, productId, quantity);
+    }
 }
-
-git 
