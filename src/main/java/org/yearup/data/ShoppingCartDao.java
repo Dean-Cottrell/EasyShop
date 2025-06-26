@@ -10,4 +10,3 @@ public interface ShoppingCartDao {
     void deleteCartItem(int userId, int productId);
     void clearCart(int userId);
 }
-.
