@@ -12,9 +12,6 @@ This Java-based backend API powers *EasyShop*, an e-commerce platform designed t
 - As an admin, I want to add, update, or delete categories and products so I can manage the store’s inventory.
 - As a user, I want my shopping cart to save items even after logging out, so I can pick up where I left off.
 - As a user, I want to convert my cart into an order easily, so I can complete purchases without confusion.
-
-### Phase 3 User Stories
-
 - As a user, I want to receive an email confirmation when I complete a checkout, so I have proof of purchase and order details.
 - As an admin, I want to view summarized sales analytics, so I can make informed decisions about inventory and promotions.
 - As a user, I want to leave a rating and review for products I’ve purchased, so I can share my experience with others.
@@ -54,8 +51,6 @@ This Java-based backend API powers *EasyShop*, an e-commerce platform designed t
 - Postman (API testing)
 
 ## Demo
-
-Add screenshots of Postman tests and the frontend UI in action here.
 
 ![Ap![Screenshot 2025-06-25 201929.png](../../../../../Pictures/Screenshots/Screenshot%202025-06-25%20201929.png)plication Screenshot](path/to/your/screenshot.png)
 
