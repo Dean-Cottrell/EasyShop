@@ -12,14 +12,7 @@ This is a Java backend API powers e-commerce platform designed to handle product
 - As an admin, I want to add, update, or delete categories and products so I can manage the store’s inventory.
 - As a user, I want my shopping cart to save items even after logging out, so I can pick up where I left off.
 - As a user, I want to convert my cart into an order easily, so I can complete purchases without confusion.
-- As a user, I want to receive an email confirmation when I complete a checkout, so I have proof of purchase and order details.
-- As an admin, I want to view summarized sales analytics, so I can make informed decisions about inventory and promotions.
-- As a user, I want to leave a rating and review for products I’ve purchased, so I can share my experience with others.
-- As a user, I want to view product ratings and reviews before purchasing, so I can make better buying decisions.
-- As an admin, I want to moderate and remove inappropriate reviews, so I can maintain a professional storefront.
-- As a user, I want to update or remove my own reviews, so I can adjust my feedback as needed.
-- As an admin, I want to receive email alerts when product stock is low, so I can restock before items sell out.
-- As a user, I want to filter products by rating in addition to existing filters (price, color, category), so I can prioritize top-reviewed items.
+- As a user, I want to filter products in the existing filters (price, color, category).
 
 ## Setup
 
