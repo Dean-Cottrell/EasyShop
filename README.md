@@ -2,7 +2,7 @@
 
 ## Description of the Project
 
-This Java-based backend API powers *EasyShop*, an e-commerce platform designed to handle product listings, user authentication, shopping cart functionality, and order management. The application is built using Spring Boot and connects to a MySQL database. It’s geared toward backend developers and learners looking to understand real-world e-commerce logic and robust API design. It includes everything from user registration and login via JWT tokens, to role-based permissions, product filtering, and shopping cart persistence. The frontend is provided for testing, but all development work is focused on the backend API.
+This is a Java backend API powers e-commerce platform designed to handle product listings, user authentication, shopping cart functionality, and order management. The application is built using Spring Boot and connects to a MySQL database. It includes everything from user registration and login via tokens, to role-based permissions, product filtering, and shopping cart persistence. 
 
 
 ## User Stories
