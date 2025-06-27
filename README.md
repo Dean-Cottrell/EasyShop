@@ -57,7 +57,7 @@ This Java-based backend API powers *EasyShop*, an e-commerce platform designed t
 
 Add screenshots of Postman tests and the frontend UI in action here.
 
-![Ap![Screenshot 2025-06-25 201929.png](../../../../../../../../Pictures/Screenshots/Screenshot%202025-06-25%20201929.png)plication Screenshot](path/to/your/screenshot.png)
+![Ap![Screenshot 2025-06-25 201929.png](../../../../../Pictures/Screenshots/Screenshot%202025-06-25%20201929.png)plication Screenshot](path/to/your/screenshot.png)
 
 ## Future Work
 
